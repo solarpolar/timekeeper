@@ -6,6 +6,8 @@ composer.lock
 /app/config/sendGridConfig.php
 /app/config/defaultMailConfig.php
 /app/config/local/*
+Vagrantfile
+bootstrap.sh
+.vagrant
 .DS_Store
-l4withsentry.sublime-workspace
-l4withsentry.sublime-project
+

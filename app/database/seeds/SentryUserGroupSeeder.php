@@ -11,14 +11,14 @@ class SentryUserGroupSeeder extends Seeder {
 	{
 		DB::table('users_groups')->delete();
 
-		$userUser = Sentry::getUserProvider()->findByLogin('user@user.com');
-		$adminUser = Sentry::getUserProvider()->findByLogin('admin@admin.com');
+		// $userUser = Sentry::getUserProvider()->findByLogin('user@user.com');
+		$adminUser = Sentry::getUserProvider()->findByLogin('rydurham@gmail.com');
 
 		$userGroup = Sentry::getGroupProvider()->findByName('Users');
 		$adminGroup = Sentry::getGroupProvider()->findByName('Admins');
 
 	    // Assign the groups to the users
-	    $userUser->addGroup($userGroup);
+	    //$userUser->addGroup($userGroup);
 	    $adminUser->addGroup($userGroup);
 	    $adminUser->addGroup($adminGroup);
 	}
