@@ -1,13 +1,13 @@
 <?php
 
-use Authority\Repo\User\UserInterface;
-use Authority\Repo\Group\GroupInterface;
-use Authority\Service\Form\Register\RegisterForm;
-use Authority\Service\Form\User\UserForm;
-use Authority\Service\Form\ResendActivation\ResendActivationForm;
-use Authority\Service\Form\ForgotPassword\ForgotPasswordForm;
-use Authority\Service\Form\ChangePassword\ChangePasswordForm;
-use Authority\Service\Form\SuspendUser\SuspendUserForm;
+use Timekeeper\Repo\User\UserInterface;
+use Timekeeper\Repo\Group\GroupInterface;
+use Timekeeper\Service\Form\Register\RegisterForm;
+use Timekeeper\Service\Form\User\UserForm;
+use Timekeeper\Service\Form\ResendActivation\ResendActivationForm;
+use Timekeeper\Service\Form\ForgotPassword\ForgotPasswordForm;
+use Timekeeper\Service\Form\ChangePassword\ChangePasswordForm;
+use Timekeeper\Service\Form\SuspendUser\SuspendUserForm;
 
 class UserController extends BaseController {
 

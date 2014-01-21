@@ -1,7 +1,7 @@
 <?php
 
-use Authority\Repo\Session\SessionInterface;
-use Authority\Service\Form\Login\LoginForm;
+use Timekeeper\Repo\Session\SessionInterface;
+use Timekeeper\Service\Form\Login\LoginForm;
 
 class SessionController extends BaseController {
 

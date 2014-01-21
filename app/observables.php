@@ -14,4 +14,4 @@ Event::listen('user.logout', function()
 });
 
 // Subscribe to User Mailer events
-Event::subscribe('Authority\Mailers\UserMailer');
+Event::subscribe('Timekeeper\Mailers\UserMailer');
