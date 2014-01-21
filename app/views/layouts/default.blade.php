@@ -45,13 +45,13 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-	          <a class="navbar-brand" href="{{ URL::route('home') }}">L4 with Sentry</a>
+	          <a class="navbar-brand" href="{{ URL::route('home') }}">Time Keeper</a>
 	        </div>
 	        <div class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
 				@if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
-					<li {{ (Request::is('users*') ? 'class="active"' : '') }}><a href="{{ URL::to('/users') }}">Users</a></li>
-					<li {{ (Request::is('groups*') ? 'class="active"' : '') }}><a href="{{ URL::to('/groups') }}">Groups</a></li>
+					<li {{ (Request::is('users*') ? 'class="active"' : '') }}><a href="{{ URL::to('/clients') }}">Clients</a></li>
+					<li><a href="#">Hours</a></li>
 				@endif
 	          </ul>
 	          <ul class="nav navbar-nav navbar-right">

@@ -51,6 +51,14 @@ Route::get('/', array('as' => 'home', function()
 }));
 
 
+// Client Routes
+Route::get('clients', 'ClientController@index');
+Route::get('clients/create', 'ClientController@create');
+Route::post('clients/store', 'ClientController@store');
+Route::get('clients/{id}', 'ClientController@show')->where('id', '[0-9]+');
+
+
+
 // App::missing(function($exception)
 // {
 //     App::abort(404, 'Page not found');

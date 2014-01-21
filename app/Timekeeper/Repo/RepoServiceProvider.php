@@ -1,9 +1,12 @@
 <?php namespace Timekeeper\Repo;
 
+use Client;     // Eloquent 'report'
 use Illuminate\Support\ServiceProvider;
 use Timekeeper\Repo\Session\SentrySession;
 use Timekeeper\Repo\User\SentryUser;
 use Timekeeper\Repo\Group\SentryGroup;
+use Timekeeper\Repo\Client\EloquentClient;
+//use Timekeeper\Service\Cache\LaravelCache;
 use Cartalyst\Sentry\Sentry;
 
 class RepoServiceProvider extends ServiceProvider {
@@ -36,6 +39,14 @@ class RepoServiceProvider extends ServiceProvider {
         {
             return new SentryGroup(
                 $app['sentry']
+            );
+        });
+
+        // Bind the Client Repository
+        $app->bind('Timekeeper\Repo\Client\ClientInterface', function($app)
+        {
+            return new EloquentClient(
+                new Client
             );
         });
 	}
