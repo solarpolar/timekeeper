@@ -17,8 +17,8 @@ use Timekeeper\Service\Form\ChangePassword\ChangePasswordForm;
 use Timekeeper\Service\Form\ChangePassword\ChangePasswordFormLaravelValidator;
 use Timekeeper\Service\Form\SuspendUser\SuspendUserForm;
 use Timekeeper\Service\Form\SuspendUser\SuspendUserFormLaravelValidator;
-use Timekeeper\Service\Form\Clients\ClientForm;
-use Timekeeper\Service\Form\Clients\ClientFormLaravelValidator;
+use Timekeeper\Service\Form\Client\ClientForm;
+use Timekeeper\Service\Form\Client\ClientFormLaravelValidator;
 
 class FormServiceProvider extends ServiceProvider {
 
@@ -104,7 +104,7 @@ class FormServiceProvider extends ServiceProvider {
         });
 
         // Bind the Client Form
-        $app->bind('Timekeeper\Service\Form\Clients\ClientForm', function($app)
+        $app->bind('Timekeeper\Service\Form\Client\ClientForm', function($app)
         {
             return new ClientForm(
                 new ClientFormLaravelValidator( $app['validator'] ),
