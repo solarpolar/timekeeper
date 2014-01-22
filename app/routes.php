@@ -56,6 +56,9 @@ Route::get('clients', 'ClientController@index');
 Route::get('clients/create', 'ClientController@create');
 Route::post('clients/store', 'ClientController@store');
 Route::get('clients/{id}', 'ClientController@show')->where('id', '[0-9]+');
+Route::get('clients/{id}/edit', 'ClientController@edit')->where('id', '[0-9]+');
+Route::post('clients/{id}/update', 'ClientController@update')->where('id', '[0-9]+');
+Route::delete('clients/{id}', 'ClientController@destroy')->where('id', '[0-9]+');
 
 
 

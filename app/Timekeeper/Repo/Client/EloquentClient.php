@@ -22,11 +22,10 @@ class EloquentClient extends RepoAbstract implements ClientInterface {
 	 */
 	public function store($data)
 	{
-		$client = $this->document->create(array(
+		$client = $this->client->create(array(
 			'name' => e($data['name']),
-			'email' => e($data['email']),
 			'address' => e($data['address']),
-			'phone' => e($data['phone'])
+			'user_id' => \Session::get('userId')
 		));
 
 		if ($client)	
@@ -43,13 +42,11 @@ class EloquentClient extends RepoAbstract implements ClientInterface {
 	{
 		$client = $this->client->find(e($data['client_id']));
 		$client->name = e($data['name']);
-		$client->email = e($data['email']);
 		$client->address = e($data['address']);
-		$client->phone = e($data['phone']);
 
 		// Flush the cache
-		$key = md5('client_id.' . $data['client_id']);
-		$this->cache->forget($key);
+		//$key = md5('client_id.' . $data['client_id']);
+		//$this->cache->forget($key);
 
 		return true;
 	}
@@ -60,14 +57,14 @@ class EloquentClient extends RepoAbstract implements ClientInterface {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($client_id)
 	{
 		// Pull the report info, delete it 
         $client = $this->client->find($client_id);
 
         // Flush the cache
-        $key = md5('client_id.' . $client_id);
-        $this->cache->forget($key);
+        // $key = md5('client_id.' . $client_id);
+        // $this->cache->forget($key);
 
         $client->delete();
         return true;
@@ -79,21 +76,21 @@ class EloquentClient extends RepoAbstract implements ClientInterface {
 	 * @param  integer $id
 	 * @return Client
 	 */
-	public function byId($id)
+	public function byId($client_id)
 	{
 		// Build the cache key, unique per client slug
-		$key = md5('client_id.' . $client_id);
+		// $key = md5('client_id.' . $client_id);
 
-		if ($this->cache->has($key))
-		{
-			return $this->cache->get($key);
-		}
+		// if ($this->cache->has($key))
+		// {
+		// 	return $this->cache->get($key);
+		// }
 
 		// Item not cached.  Retreive it. 
 		$client = $this->client->where('id', $client_id)->first();
 
 		// Store in Cache for the next request.
-		$this->cache->put($key, $client);
+		//$this->cache->put($key, $client);
 		
 		return $client;
 	}
